@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { Header } from '@/components/Header';
+import { AIStatusBar } from '@/components/AIStatusBar';
 import { CreditRiskForm } from '@/components/CreditRiskForm';
 import { RiskAssessmentResult, RiskAssessmentResponse } from '@/components/RiskAssessmentResult';
 
@@ -76,6 +78,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
+      <Header />
+      
+      {!result && <AIStatusBar />}
+      
       <div className="container mx-auto py-8">
         {!result ? (
           <CreditRiskForm 

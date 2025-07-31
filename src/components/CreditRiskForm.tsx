@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { format } from 'date-fns';
-import { CalendarIcon, Loader2, CreditCard, User, Building, DollarSign } from 'lucide-react';
+import { CalendarIcon, Loader2, CreditCard, User, Building, DollarSign, Brain, Sparkles, Cpu, Zap } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -85,19 +85,57 @@ export const CreditRiskForm: React.FC<CreditRiskFormProps> = ({ onSubmit, isLoad
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
-      <div className="text-center space-y-3 mb-8">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="p-3 rounded-xl bg-gradient-primary text-primary-foreground shadow-elegant">
-            <CreditCard className="w-8 h-8" />
-          </div>
-          <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            Credit Risk Assessment
-          </h1>
+    <div className="w-full max-w-5xl mx-auto p-6 space-y-8">
+      
+      {/* Futuristic AI Hero Section */}
+      <div className="relative text-center space-y-6 mb-12">
+        <div className="absolute inset-0 -z-10">
+          <div className="w-full h-full bg-gradient-ai opacity-5 rounded-3xl blur-3xl"></div>
         </div>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Complete the form below to get an instant credit risk evaluation powered by advanced AI models
-        </p>
+        
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="relative">
+            <div className="p-4 rounded-2xl bg-gradient-ai shadow-ai">
+              <Brain className="w-10 h-10 text-white" />
+            </div>
+            <div className="absolute -top-1 -right-1">
+              <Sparkles className="w-5 h-5 text-ai-accent animate-pulse" />
+            </div>
+          </div>
+          <div className="text-left">
+            <h1 className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent">
+              AI Credit Assessment
+            </h1>
+            <p className="text-sm text-muted-foreground font-mono flex items-center gap-1">
+              <Cpu className="w-3 h-3" />
+              Powered by Advanced Machine Learning
+            </p>
+          </div>
+        </div>
+        
+        <div className="max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Complete the secure form below to receive an instant, AI-powered credit risk evaluation 
+            using our proprietary ensemble of <span className="font-semibold text-primary">CatBoost</span>, 
+            <span className="font-semibold text-primary"> XGBoost</span>, and 
+            <span className="font-semibold text-primary"> HistGradientBoosting</span> models.
+          </p>
+          
+          <div className="flex items-center justify-center gap-6 mt-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-1">
+              <Zap className="w-4 h-4 text-warning" />
+              <span>Real-time Analysis</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+              <span>99.9% Uptime</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <CreditCard className="w-4 h-4 text-primary" />
+              <span>Bank-Grade Security</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <Form {...form}>
@@ -505,24 +543,44 @@ export const CreditRiskForm: React.FC<CreditRiskFormProps> = ({ onSubmit, isLoad
             </CardContent>
           </Card>
 
-          {/* Submit Button */}
-          <div className="flex justify-center pt-6">
+          {/* AI-Powered Submit Section */}
+          <div className="relative flex flex-col items-center pt-8 space-y-4">
+            <div className="absolute inset-0 -z-10">
+              <div className="w-full h-full bg-gradient-ai opacity-10 rounded-3xl blur-2xl"></div>
+            </div>
+            
+            <div className="text-center space-y-2 mb-4">
+              <p className="text-sm text-muted-foreground font-mono">
+                Ready to deploy AI models for analysis
+              </p>
+              <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                <div className="w-1.5 h-1.5 bg-success rounded-full animate-pulse"></div>
+                <span>CatBoost</span>
+                <div className="w-1.5 h-1.5 bg-success rounded-full animate-pulse"></div>
+                <span>XGBoost</span>
+                <div className="w-1.5 h-1.5 bg-success rounded-full animate-pulse"></div>
+                <span>HistGradientBoosting</span>
+              </div>
+            </div>
+
             <Button
               type="submit"
               variant="submit"
               size="lg"
               disabled={isLoading}
-              className="min-w-48 animate-pulse-glow"
+              className="relative min-w-64 h-14 text-lg font-semibold bg-gradient-ai shadow-ai hover:shadow-glow hover:scale-105 transition-all duration-300"
             >
               {isLoading ? (
                 <>
+                  <Brain className="w-6 h-6 animate-pulse mr-3" />
+                  <span className="mr-3">AI Models Processing</span>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  Analyzing Risk...
                 </>
               ) : (
                 <>
-                  <CreditCard className="w-5 h-5" />
-                  Assess Credit Risk
+                  <Sparkles className="w-5 h-5 mr-3" />
+                  Launch AI Risk Assessment
+                  <Zap className="w-5 h-5 ml-3" />
                 </>
               )}
             </Button>
